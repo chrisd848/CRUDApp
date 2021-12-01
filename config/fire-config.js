@@ -1,7 +1,12 @@
 import firebase from 'firebase';
 
 const firebaseConfig = {
-  // INSERT YOUR OWN CONFIG HERE
+  apiKey: "AIzaSyA8M2-XqzI5rx4iuA8TFxah81ABY7bgEYg",
+  authDomain: "crudapp-bc666.firebaseapp.com",
+  projectId: "crudapp-bc666",
+  storageBucket: "crudapp-bc666.appspot.com",
+  messagingSenderId: "47869362358",
+  appId: "1:47869362358:web:821633294ecd5e1d63a617"
 };
 
 try {

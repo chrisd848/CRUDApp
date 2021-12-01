@@ -8,9 +8,22 @@
     "start": "next start"
   },
   "dependencies": {
-    "firebase": "^7.15.5",
-    "next": "9.4.4",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
-  }
+    "firebase": "^7.24.0",
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisd848/CRUDApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisd848/CRUDApp/issues"
+  },
+  "homepage": "https://github.com/chrisd848/CRUDApp#readme"
 }
