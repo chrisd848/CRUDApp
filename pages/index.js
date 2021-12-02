@@ -4,7 +4,8 @@ import fire from '../config/fire-config';
 import CreatePost from '../components/CreatePost';
 import Link from 'next/link';
 
-// test
+import utilStyles from '../styles/utils.module.css'
+import Layout, { siteTitle } from '../components/layout'
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -44,37 +45,46 @@ const Home = () => {
   }
 
   return (
-    <div>
-      <Head>
-        <title>Blog App</title>
-      </Head>
-      <h1>Blog</h1>
-      {notification}
-      {!loggedIn 
-      ?
-        <div>
-          <Link href="/users/register">
-            <a>Register</a>
-          </Link> | 
-          <Link href="/users/login">
-            <a> Login</a>
-          </Link>
-        </div>
-      :
-        <button onClick={handleLogout}>Logout</button>
-      }
-
-      <ul>
-        {blogs.map(blog =>
-          <li key={blog.id}>
-            <Link href="/blog/[id]" as={'/blog/' + blog.id }>
-              <a itemProp="hello">{blog.title}</a>
+    <Layout home>
+      <div>
+        <Head>
+          <title>Blog App</title>
+        </Head>
+        
+        <section className={utilStyles.headingMd}>
+          <p>Welcome to our CRUD website!</p>
+        </section>
+        
+        {notification}
+        {!loggedIn 
+        ?
+          <div>
+            <Link href="/users/register">
+              <a>Register</a>
+            </Link> | 
+            <Link href="/users/login">
+              <a> Login</a>
             </Link>
-          </li>
-        )}
-      </ul>
-      {loggedIn && <CreatePost />}
-    </div>
+          </div>
+        :
+          <button onClick={handleLogout}>Logout</button>
+        }
+
+        <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+          <h2 className={utilStyles.headingLg}>Blogs</h2>
+          <ul className={utilStyles.list}>
+            {blogs.map(blog =>
+              <li className={utilStyles.listItem} key={blog.id}>
+                <Link href="/blog/[id]" as={'/blog/' + blog.id }>
+                  <a itemProp="hello">{blog.title}</a>
+                </Link>
+              </li>
+            )}
+          </ul>
+        {loggedIn && <CreatePost />}
+        </section>
+      </div>
+    </Layout>
   )
 }
 

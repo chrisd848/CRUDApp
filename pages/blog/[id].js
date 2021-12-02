@@ -1,18 +1,20 @@
 import fire from '../../config/fire-config';
 import Link from 'next/link'
 
+import utilStyles from '../../styles/utils.module.css'
+import Layout, { siteTitle } from '../../components/layout'
+
 const Blog = (props) => {
 
   return (
-    <div>
-      <h2>{props.title}</h2>
-      <p>
-        {props.content}
-      </p>
-      <Link href="/">
-        <a>Back</a>
-      </Link>
-    </div>
+    <Layout blog>
+      <div>
+        <h2>{props.title}</h2>
+        <p>
+          {props.content}
+        </p>
+      </div>
+    </Layout>
   )
 }
 

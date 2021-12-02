@@ -2,6 +2,9 @@ import { useState } from 'react';
 import fire from '../../config/fire-config';
 import { useRouter } from 'next/router'
 
+import utilStyles from '../../styles/utils.module.css'
+import Layout, { siteTitle } from '../../components/layout'
+
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -29,17 +32,20 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
-      {notify}
-      <form onSubmit={handleLogin}>
-        Email<input type="text" value={username} onChange={({target}) => setUsername(target.value)} />
-        <br />
-        Password<input type="password" value={password} onChange={({target}) => setPassword(target.value)} />
-        <br />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <Layout login>
+      <div>
+        {notify}
+        <form onSubmit={handleLogin}>
+          <label className={utilStyles.inputLabel} for="emal">Email</label>
+          <input className={utilStyles.inputForm} id="emal" type="text" value={username} onChange={({target}) => setUsername(target.value)} />
+          <br />
+          <label className={utilStyles.inputLabel} for="pword">Password</label>
+          <input className={utilStyles.inputForm} id="pword" type="password" value={password} onChange={({target}) => setPassword(target.value)} />
+          <br />
+          <button className={utilStyles.inputButton} type="submit">Login</button>
+        </form>
+      </div>
+    </Layout>
   )
 
 }

@@ -2,6 +2,10 @@ import { useState } from 'react';
 import fire from '../../config/fire-config';
 import { useRouter } from 'next/router'
 
+import utilStyles from '../../styles/utils.module.css'
+import Layout, { siteTitle } from '../../components/layout'
+
+
 const Register = () => {
 
   const router = useRouter();
@@ -38,20 +42,23 @@ const Register = () => {
   }
 
   return (
-    <div>
-      <h1>Create new user</h1>
-
-      {notify}
-      <form onSubmit={handleLogin}>
-        Email: <input type="text" value={userName} onChange={({target}) => setUsername(target.value)} /> 
-        <br />
-        Password: <input type="password" value={password} onChange={({target}) => setPassword(target.value)} /> 
-        <br />
-        Password conf: <input type="password" value={passConf} onChange={({target}) => setPassConf(target.value)} /> 
-        <br />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <Layout register>
+      <div>
+        {notify}
+        <form onSubmit={handleLogin}>
+          <label className={utilStyles.inputLabel} for="emal">Email</label>
+          <input className={utilStyles.inputForm} id="emal" type="text" value={userName} onChange={({target}) => setUsername(target.value)} /> 
+          <br />
+          <label className={utilStyles.inputLabel} for="pword">Password</label> 
+          <input className={utilStyles.inputForm} id="pword" type="password" value={password} onChange={({target}) => setPassword(target.value)} /> 
+          <br />
+          <label className={utilStyles.inputLabel} for="pwordc">Confirm Password</label>
+          <input className={utilStyles.inputForm} id="pwordc" type="password" value={passConf} onChange={({target}) => setPassConf(target.value)} /> 
+          <br />
+          <button className={utilStyles.inputButton} type="submit">Register</button>
+        </form>
+      </div>
+    </Layout>
   )
 }
 
