@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import fire from '../config/fire-config';
-import CreatePost from '../components/CreatePost';
 import Link from 'next/link';
 
 import styles from '../components/layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Layout, { siteTitle } from '../components/layout'
 
-const Home = () => {
-  const [blogs, setBlogs] = useState([]);
+const Judges = () => {
   const [notification, setNotification] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -21,18 +19,6 @@ const Home = () => {
         setLoggedIn(false)
       }
     })
-
-  useEffect(() => {
-    fire.firestore()
-      .collection('blog')
-      .onSnapshot(snap => {
-        const blogs = snap.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        setBlogs(blogs);
-      });
-  }, []);
 
   const handleLogout = () => {
     fire.auth()
@@ -46,16 +32,16 @@ const Home = () => {
   }
 
   return (
-    <Layout home>
+    <Layout judges>
       <div>
         <Head>
-          <title>Home</title>
+          <title>Judges</title>
         </Head>
         
         <ul className={styles.topnav}>
-              <li><a className={styles.active} href="#">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li><a href="competitions">Competitions</a></li>
-              <li><a href="judges">Judges</a></li>
+              <li><a className={styles.active} href="#">Judges</a></li>
               <li><a href="about">About</a></li>
               {!loggedIn 
               ?
@@ -70,23 +56,8 @@ const Home = () => {
 
         <div className={styles.innerContainer}>
           <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-            <h2 className={utilStyles.headingXl}>Blogs</h2>
-            <ul className={utilStyles.blogList}>
-              {blogs.map(blog =>
-              <Link href="/blog/[id]" as={'/blog/' + blog.id }>
-                <li className={utilStyles.blogItem} key={blog.id}>
-                    <a itemProp="hello">{blog.title}</a>
-                </li>
-                </Link>
-              )}
-            </ul>
-          
-            {loggedIn &&
-            <div className={styles.backToHome}>
-              <Link href="create">
-                <a>Create Blog Post</a>
-              </Link>
-            </div>}
+            <h2 className={utilStyles.headingXl}>Judges</h2>
+            <p className={utilStyles.blogPara}>This is the judges page</p>
           </section>
         </div>
       </div>
@@ -94,4 +65,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default Judges;

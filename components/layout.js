@@ -8,9 +8,12 @@ const loginTitle = 'LOGIN'
 const registerTitle = 'REGISTER'
 const blogTitle = 'USER SUBMISSION'
 const createTitle = 'CREATE BLOG'
+const competitionsTitle = 'COMPETITIONS'
+const judgesTitle = 'JUDGES'
+const aboutTitle = 'ABOUT'
 export const siteTitle = 'site title'
 
-export default function Layout({ children, home, login, register, blog, create }) {
+export default function Layout({ children, home, login, register, blog, create, competitions, judges, about }) {
   return (
     <div className={styles.outerContainer}>
 
@@ -29,6 +32,15 @@ export default function Layout({ children, home, login, register, blog, create }
           )}
           {create && (
             <h1 className={utilStyles.heading2Xl}>{createTitle}</h1>
+          )}
+          {competitions && (
+            <h1 className={utilStyles.heading2Xl}>{competitionsTitle}</h1>
+          )}
+          {judges && (
+            <h1 className={utilStyles.heading2Xl}>{judgesTitle}</h1>
+          )}
+          {about && (
+            <h1 className={utilStyles.heading2Xl}>{aboutTitle}</h1>
           )}
       </header>
         
