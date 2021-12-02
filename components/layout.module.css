@@ -22,7 +22,7 @@ ul.topnav {
 
 ul.topnav li {
   float: left;
-  min-width: 15%;
+  min-width: 10%;
 }
 
 ul.topnav li a {
@@ -32,6 +32,7 @@ ul.topnav li a {
   padding: 14px 16px;
   text-decoration: none;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 ul.topnav li a:hover:not(.active) {
@@ -42,7 +43,11 @@ ul.topnav li a.active {
   background-color: #111;
 }
 
-ul.topnav li.right {
+ul.topnav li.login {
+  float: right;
+}
+
+ul.topnav li.register {
   float: right;
   background-color: #1E90FF;
 }

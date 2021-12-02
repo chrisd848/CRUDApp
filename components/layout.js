@@ -7,49 +7,12 @@ const homeTitle = 'HOME'
 const loginTitle = 'LOGIN'
 const registerTitle = 'REGISTER'
 const blogTitle = 'USER SUBMISSION'
+const createTitle = 'CREATE BLOG'
 export const siteTitle = 'site title'
 
-export default function Layout({ children, home, login, register, blog }) {
+export default function Layout({ children, home, login, register, blog, create }) {
   return (
     <div className={styles.outerContainer}>
-      <ul className={styles.topnav}>
-          {home && (
-            <>
-              <li><a className={styles.active} href="#">Home</a></li>
-              <li><a href="#">Competitions</a></li>
-              <li><a href="#">Judges</a></li>
-              <li><a href="#">About</a></li>
-              <li className={styles.right}><a href="#">Login</a></li>
-            </>
-          )}
-          {login && (
-            <>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Competitions</a></li>
-              <li><a href="#">Judges</a></li>
-              <li><a href="#">About</a></li>
-              <li className={styles.right}><a href="#">Login</a></li>
-            </>
-          )}
-          {register && (
-            <>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Competitions</a></li>
-              <li><a href="#">Judges</a></li>
-              <li><a href="#">About</a></li>
-              <li className={styles.right}><a href="#">Login</a></li>
-            </>
-          )}
-          {blog && (
-            <>
-              <li><a href="#">Home</a></li>
-              <li><a className={styles.active} href="#">Competitions</a></li>
-              <li><a href="#">Judges</a></li>
-              <li><a href="#">About</a></li>
-              <li className={styles.right}><a href="#">Login</a></li>
-            </>
-          )}
-      </ul>
 
       <header className={styles.header}>
           {home && (
@@ -64,9 +27,11 @@ export default function Layout({ children, home, login, register, blog }) {
           {blog && (
             <h1 className={utilStyles.heading2Xl}>{blogTitle}</h1>
           )}
+          {create && (
+            <h1 className={utilStyles.heading2Xl}>{createTitle}</h1>
+          )}
       </header>
         
-      <div className={styles.innerContainer}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta
@@ -85,13 +50,14 @@ export default function Layout({ children, home, login, register, blog }) {
 
         <main>{children}</main>
         {!home && (
-          <div className={styles.backToHome}>
-            <Link href="/">
-              <a>Back to home</a>
-            </Link>
+          <div className={styles.innerContainer}>
+            <div className={styles.backToHome}>
+              <Link href="/">
+                <a>Back to home</a>
+              </Link>
+            </div>
           </div>
         )}
-      </div>
     </div>
   )
 }

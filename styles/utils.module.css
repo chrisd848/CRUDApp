@@ -54,7 +54,11 @@
   font-size: 1.2rem;
 }
 
-.inputForm {
+.inputArea {
+  min-height: 150px;
+}
+
+.inputForm, .inputArea {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -67,7 +71,7 @@
   font-weight: bold;
 }
 
-.inputForm:focus, .inputForm:hover {
+.inputForm:focus, .inputForm:hover, .inputArea:focus, .inputArea:hover {
   border: 3px solid #555;
   background-color: #fafafa;
 }
