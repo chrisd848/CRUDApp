@@ -39,11 +39,11 @@ const Login = () => {
         <title>Login</title>
       </Head>
       <ul className={styles.topnav}>
-        <li><a href="#">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="#">Competitions</a></li>
         <li><a href="#">Judges</a></li>
         <li><a href="#">About</a></li>
-        <li className={styles.register}><a href="#">Register</a></li>
+        <li className={styles.register}><a href="register">Register</a></li>
         <li className={styles.login}><a href="#">Login</a></li>
       </ul>
         

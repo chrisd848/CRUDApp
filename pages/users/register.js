@@ -49,12 +49,12 @@ const Register = () => {
         <title>Register</title>
       </Head>
       <ul className={styles.topnav}>
-        <li><a href="#">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="#">Competitions</a></li>
         <li><a href="#">Judges</a></li>
         <li><a href="#">About</a></li>
         <li className={styles.register}><a href="#">Register</a></li>
-        <li className={styles.login}><a href="#">Login</a></li>
+        <li className={styles.login}><a href="login">Login</a></li>
       </ul>
 
       <div className={styles.innerContainer}>

@@ -52,8 +52,8 @@ const Blog = (props) => {
       </ul>
 
       <div className={styles.innerContainer}>
-        <h2>{props.title}</h2>
-        <p>
+        <h2 className={utilStyles.headingXl}>{props.title}</h2>
+        <p className={utilStyles.blogPara}>
           {props.content}
         </p>
       </div>

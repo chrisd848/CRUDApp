@@ -71,13 +71,13 @@ const Home = () => {
         <div className={styles.innerContainer}>
           <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
             <h2 className={utilStyles.headingLg}>Blogs</h2>
-            <ul className={utilStyles.list}>
+            <ul className={utilStyles.blogList}>
               {blogs.map(blog =>
-                <li className={utilStyles.listItem} key={blog.id}>
-                  <Link href="/blog/[id]" as={'/blog/' + blog.id }>
+              <Link href="/blog/[id]" as={'/blog/' + blog.id }>
+                <li className={utilStyles.blogItem} key={blog.id}>
                     <a itemProp="hello">{blog.title}</a>
-                  </Link>
                 </li>
+                </Link>
               )}
             </ul>
           
