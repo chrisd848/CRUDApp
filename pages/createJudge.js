@@ -78,7 +78,17 @@ const createJudge = () => {
         </ul>
 
             <div className={styles.innerContainer}>
-                <form onSubmit={handleSubmit}>
+              
+            {!loggedIn 
+              ?
+              [
+                <div>
+                  <h2 className={utilStyles.headingXl}>Login</h2>
+                  <p className={utilStyles.blogPara}>You must be logged in to create a judge</p>
+                </div>
+              ]
+              :
+              <form onSubmit={handleSubmit}>
                     <div>
                         <label className={utilStyles.inputLabel} for="fname">First Name</label><br />
                         <input className={utilStyles.inputForm} id="fname" type="text" value={firstName} onChange={({target}) => setFirstName(target.value)} />
@@ -94,6 +104,8 @@ const createJudge = () => {
                     <button className={utilStyles.inputButton} type="submit">Add Judge</button>
                     {notification}
                 </form>
+              }
+                
             </div>
         </div>
     </Layout>

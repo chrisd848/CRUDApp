@@ -81,7 +81,16 @@ const createEntry = () => {
         </ul>
                 
             <div className={styles.innerContainer}>
-                <form onSubmit={handleSubmit}>
+            {!loggedIn 
+              ?
+              [
+                <div>
+                  <h2 className={utilStyles.headingXl}>Login</h2>
+                  <p className={utilStyles.blogPara}>You must be logged in to create a submission</p>
+                </div>
+              ]
+              :
+              <form onSubmit={handleSubmit}>
                      <div>
                         <label className={utilStyles.inputLabel} for="title">Theme</label><br />
                         <p>{query.theme}</p>
@@ -97,6 +106,7 @@ const createEntry = () => {
                     <button className={utilStyles.inputButton} type="submit">Submit Entry</button>
                     {notification}
                 </form>
+              }
             </div>
         </div>
     </Layout>

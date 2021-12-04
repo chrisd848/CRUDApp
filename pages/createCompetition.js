@@ -75,7 +75,16 @@ const createCompetition = () => {
         </ul>
 
             <div className={styles.innerContainer}>
-                <form onSubmit={handleSubmit}>
+            {!loggedIn 
+              ?
+              [
+                <div>
+                  <h2 className={utilStyles.headingXl}>Login</h2>
+                  <p className={utilStyles.blogPara}>You must be logged in to create a competition</p>
+                </div>
+              ]
+              :
+              <form onSubmit={handleSubmit}>
                     <div>
                         <label className={utilStyles.inputLabel} for="title">Competition Title</label><br />
                         <input className={utilStyles.inputForm} id="title" type="text" value={title} onChange={({target}) => setTitle(target.value)} />
@@ -87,6 +96,8 @@ const createCompetition = () => {
                     <button className={utilStyles.inputButton} type="submit">Post Competition</button>
                     {notification}
                 </form>
+              }
+                
             </div>
         </div>
     </Layout>
