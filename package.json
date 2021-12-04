@@ -25,5 +25,6 @@
   "bugs": {
     "url": "https://github.com/chrisd848/CRUDApp/issues"
   },
-  "homepage": "https://github.com/chrisd848/CRUDApp#readme"
+  "homepage": "https://github.com/chrisd848/CRUDApp#readme",
+  "devDependencies": {}
 }

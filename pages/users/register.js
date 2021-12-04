@@ -50,6 +50,7 @@ const Register = () => {
       </Head>
       <ul className={styles.topnav}>
         <li><a href="/">Home</a></li>
+        <li><a href="submissions">Submissions</a></li>
         <li><a href="competitions">Competitions</a></li>
         <li><a href="judges">Judges</a></li>
         <li><a href="about">About</a></li>

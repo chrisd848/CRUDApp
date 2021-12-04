@@ -7,9 +7,9 @@ import styles from '../components/layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Layout, { siteTitle } from '../components/layout'
 
-const create = () => {
+const createCompetition = () => {
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [description, setDescription] = useState('');
   const [notification, setNotification] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -26,16 +26,16 @@ const create = () => {
     event.preventDefault();
 
     fire.firestore()
-      .collection('blog')
+      .collection('competitions')
       .add({
         title: title,
-        content: content,
+        description: description,
       });
 
     setTitle('');
-    setContent('');
+    setDescription('');
 
-    setNotification('Blogpost created');
+    setNotification('Competition created');
     setTimeout(() => {
       setNotification('')
     }, 5000)
@@ -53,16 +53,17 @@ const create = () => {
       });
   }
   return (
-    <Layout create>
+    <Layout createCompetition>
         <div>
             <Head>
-               <title>Create</title>
+               <title>Create Competition</title>
             </Head>
             <ul className={styles.topnav}>
               <li><a href="/">Home</a></li>
-              <li><a href="#">Competitions</a></li>
-              <li><a href="#">Judges</a></li>
-              <li><a href="#">About</a></li>
+              <li><a href="submissions">Submissions</a></li>
+              <li><a href="competitions">Competitions</a></li>
+              <li><a href="judges">Judges</a></li>
+              <li><a href="about">About</a></li>
               {!loggedIn 
               ?
               [
@@ -77,14 +78,14 @@ const create = () => {
             <div className={styles.innerContainer}>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label className={utilStyles.inputLabel} for="title">Title</label><br />
+                        <label className={utilStyles.inputLabel} for="title">Competition Title</label><br />
                         <input className={utilStyles.inputForm} id="title" type="text" value={title} onChange={({target}) => setTitle(target.value)} />
                     </div>
                     <div>
-                        <label className={utilStyles.inputLabel} for="body">Body</label><br />
-                        <textarea className={utilStyles.inputArea} id="body" value={content} onChange={({target}) => setContent(target.value)} />
+                        <label className={utilStyles.inputLabel} for="body">Competition Description</label><br />
+                        <textarea className={utilStyles.inputArea} id="body" value={description} onChange={({target}) => setDescription(target.value)} />
                     </div>
-                    <button className={utilStyles.inputButton} type="submit">Post Blog</button>
+                    <button className={utilStyles.inputButton} type="submit">Post Competition</button>
                     {notification}
                 </form>
             </div>
@@ -93,4 +94,4 @@ const create = () => {
   )
 }
 
-export default create;
+export default createCompetition;

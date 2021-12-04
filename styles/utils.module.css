@@ -49,15 +49,15 @@
 }
 
 .blogItem {
-  margin: 0 0 1.25rem;
-  background: #edf0f0;
-  padding: 12px;
-  border: 1px solid rgba(0,0,0,0.15);
-  border-radius: 3px;
+  margin: 0 0 1rem 0;
+  background: #fff;
+  padding: 6px 12px;
+  border: 4px solid #333;
+  border-radius: 1px;
   cursor: pointer;
   color: black;
   text-align: justify;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .blogItem:hover {
@@ -72,6 +72,102 @@
 .blogItem a {
   color: inherit;
   text-decoration: none;
+}
+
+.competitionContainer {
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.competitionContainer a {
+  text-decoration: none;
+}
+
+.competitionItem {
+  background: #1E90FF;
+  border-radius: 1px;
+  cursor: pointer;
+  display: flex;
+  padding: 12px;
+}
+
+.competitionItem:hover {
+  background-color: #333;
+  color: white;
+  -webkit-transition: background-color 0.15s ease-out, color 0.15s ease-out;
+  -moz-transition: background-color 0.15s ease-out, color 0.15s ease-out;
+  -o-transition: background-color 0.15s ease-out, color 0.15s ease-out;
+  transition: background-color 0.15s ease-out, color 0.15s ease-out;
+}
+
+.competitionContent {
+  width: 100%;
+}
+
+.competitionContent p {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  color: #edf0f0;
+}
+
+.judgeContainer {
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.judgeContainer a {
+  text-decoration: none;
+}
+
+.judgeItem {
+  background: #1E90FF;
+  border-radius: 1px;
+  cursor: pointer;
+  display: flex;
+  padding: 12px;
+}
+
+.judgeItem:hover {
+  background-color: #333;
+  color: white;
+  -webkit-transition: background-color 0.15s ease-out, color 0.15s ease-out;
+  -moz-transition: background-color 0.15s ease-out, color 0.15s ease-out;
+  -o-transition: background-color 0.15s ease-out, color 0.15s ease-out;
+  transition: background-color 0.15s ease-out, color 0.15s ease-out;
+}
+
+.judgeItem p {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  color: #edf0f0;
+}
+
+.judgeContent {
+  width: 100%;
+}
+
+.judgeContent p {
+  font-size: 0.8rem;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  color: #edf0f0;
+}
+
+.judgeFirstName {
+  font-weight: bold;
 }
 
 .lightText {

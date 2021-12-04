@@ -6,8 +6,9 @@ import Head from 'next/head';
 import styles from '../../components/layout.module.css'
 import utilStyles from '../../styles/utils.module.css'
 import Layout, { siteTitle } from '../../components/layout'
+import firebase from 'firebase';
 
-const Blog = (props) => {
+const Submission = (props) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [notification, setNotification] = useState('');
   fire.auth()
@@ -37,9 +38,10 @@ const Blog = (props) => {
       </Head>
       <ul className={styles.topnav}>
         <li><a href="/">Home</a></li>
-        <li><a href="#">Competitions</a></li>
-        <li><a href="#">Judges</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="submissions">Submissions</a></li>
+        <li><a href="competitions">Competitions</a></li>
+        <li><a href="judges">Judges</a></li>
+        <li><a href="about">About</a></li>
         {!loggedIn 
         ?
         [
@@ -64,7 +66,7 @@ const Blog = (props) => {
 export const getServerSideProps = async ({ query }) => {
   const content = {}
   await fire.firestore()
-    .collection('blog')
+    .collection('submissions')
     .doc(query.id)
     .get()
     .then(result => {
@@ -80,4 +82,4 @@ export const getServerSideProps = async ({ query }) => {
   }
 }
 
-export default Blog
+export default Submission

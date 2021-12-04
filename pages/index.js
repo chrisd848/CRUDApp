@@ -8,7 +8,10 @@ import styles from '../components/layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Layout, { siteTitle } from '../components/layout'
 
+import UploadFile from '../components/storage/UploadFile'
+
 const Home = () => {
+  const [competitions, setCompetitions] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const [notification, setNotification] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
@@ -34,6 +37,18 @@ const Home = () => {
       });
   }, []);
 
+  useEffect(() => {
+    fire.firestore()
+      .collection('competitions')
+      .onSnapshot(snap => {
+        const competitions = snap.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setCompetitions(competitions);
+      });
+  }, []);
+
   const handleLogout = () => {
     fire.auth()
       .signOut()
@@ -54,6 +69,7 @@ const Home = () => {
         
         <ul className={styles.topnav}>
               <li><a className={styles.active} href="#">Home</a></li>
+              <li><a href="submissions">Submissions</a></li>
               <li><a href="competitions">Competitions</a></li>
               <li><a href="judges">Judges</a></li>
               <li><a href="about">About</a></li>
@@ -70,23 +86,28 @@ const Home = () => {
 
         <div className={styles.innerContainer}>
           <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-            <h2 className={utilStyles.headingXl}>Blogs</h2>
-            <ul className={utilStyles.blogList}>
-              {blogs.map(blog =>
-              <Link href="/blog/[id]" as={'/blog/' + blog.id }>
-                <li className={utilStyles.blogItem} key={blog.id}>
-                    <a itemProp="hello">{blog.title}</a>
-                </li>
-                </Link>
-              )}
-            </ul>
+            <h2 className={utilStyles.headingXl}>Competitions</h2>
+            <p className={utilStyles.blogPara}>Below is a list of open writing prompts</p>
           
+            <div className={utilStyles.competitionList}>
+              {competitions.map(competition =>
+              <a href="createEntry">
+              <div className={utilStyles.competitionItem} key={competition.id}>
+                <div className={utilStyles.competitionContent}>
+                  <p className={utilStyles.competitionTitle} itemProp="hello">{competition.title}</p>
+                </div>
+              </div>
+              </a>
+              )}
+            </div>
+
             {loggedIn &&
             <div className={styles.backToHome}>
-              <Link href="create">
-                <a>Create Blog Post</a>
+              <Link href="createCompetition">
+                <a>Add New Writing Prompt</a>
               </Link>
             </div>}
+            
           </section>
         </div>
       </div>

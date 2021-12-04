@@ -7,14 +7,18 @@ const homeTitle = 'HOME'
 const loginTitle = 'LOGIN'
 const registerTitle = 'REGISTER'
 const blogTitle = 'USER SUBMISSION'
-const createTitle = 'CREATE BLOG'
+const createEntryTitle = 'CREATE ENTRY'
+const createCompetitionTitle = 'CREATE COMPETITION'
+const createJudgeTitle = 'CREATE JUDGE'
+const submissionsTitle = 'SUBMISSIONS'
 const competitionsTitle = 'COMPETITIONS'
 const judgesTitle = 'JUDGES'
 const aboutTitle = 'ABOUT'
-export const siteTitle = 'site title'
+export const siteTitle = 'CRUD APP'
 
-export default function Layout({ children, home, login, register, blog, create, competitions, judges, about }) {
+export default function Layout({ children, home, login, register, blog, createEntry, createCompetition, createJudge, competitions, judges, about, submissions }) {
   return (
+    <>
     <div className={styles.outerContainer}>
 
       <header className={styles.header}>
@@ -30,8 +34,14 @@ export default function Layout({ children, home, login, register, blog, create, 
           {blog && (
             <h1 className={utilStyles.heading2Xl}>{blogTitle}</h1>
           )}
-          {create && (
-            <h1 className={utilStyles.heading2Xl}>{createTitle}</h1>
+          {createEntry && (
+            <h1 className={utilStyles.heading2Xl}>{createEntryTitle}</h1>
+          )}
+          {createCompetition && (
+            <h1 className={utilStyles.heading2Xl}>{createCompetitionTitle}</h1>
+          )}
+          {createJudge && (
+            <h1 className={utilStyles.heading2Xl}>{createJudgeTitle}</h1>
           )}
           {competitions && (
             <h1 className={utilStyles.heading2Xl}>{competitionsTitle}</h1>
@@ -41,6 +51,9 @@ export default function Layout({ children, home, login, register, blog, create, 
           )}
           {about && (
             <h1 className={utilStyles.heading2Xl}>{aboutTitle}</h1>
+          )}
+          {submissions && (
+            <h1 className={utilStyles.heading2Xl}>{submissionsTitle}</h1>
           )}
       </header>
         
@@ -70,6 +83,12 @@ export default function Layout({ children, home, login, register, blog, create, 
             </div>
           </div>
         )}
+
     </div>
+    <div className={styles.footerContainer}>
+      <p>Footer</p>
+    </div>
+    </>
+    
   )
 }
