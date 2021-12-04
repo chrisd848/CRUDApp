@@ -2,12 +2,16 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import fire from '../config/fire-config';
 import Link from 'next/link';
+import Image from 'next/image'
 
 import styles from '../components/layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Layout, { siteTitle } from '../components/layout'
 
+var profilePicture = "judge" + (Math.floor(Math.random() * 9) + 1) + ".jpg";
+
 const Faqs = () => {
+  const [winners, setWinners] = useState([]);
   const [notification, setNotification] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -19,6 +23,18 @@ const Faqs = () => {
         setLoggedIn(false)
       }
     })
+
+    useEffect(() => {
+      fire.firestore()
+        .collection('winners')
+        .onSnapshot(snap => {
+          const winners = snap.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+          }));
+          setWinners(winners);
+        });
+    }, []);
 
   const handleLogout = () => {
     fire.auth()
@@ -93,6 +109,23 @@ const Faqs = () => {
                 <li className={utilStyles.blogPara}><strong>Answer:</strong> The prizes for competitions are available on the <a href="rules">rules</a> page</li>
               </ul>
             </ol>
+            <br />
+            <h2 className={utilStyles.headingXl}>Winners</h2>
+            <div className={utilStyles.judgeContainer}>
+              {winners.map(winner =>
+              <div className={utilStyles.judgeItem} key={winner.id}>
+                <br/>
+                <div className={utilStyles.judgeContent}>
+                  <Image className={utilStyles.judgePicture} src={`/../public/images/${profilePicture}`} alt="Picture of the winner" width={400} height={400}/>
+                  <p className={utilStyles.judgeFirstName} itemProp="firstName">{winner.firstName}</p>
+                  <p className={utilStyles.judgeLastName} itemProp="surname">{winner.surname}</p>
+                  <p className={utilStyles.judgeBiography} itemProp="theme">{winner.theme}</p>
+                  <p className={utilStyles.judgeBiography} itemProp="date">{winner.date}</p>
+                  <p className={utilStyles.judgeBiography} itemProp="placement">{winner.placement} Place</p>
+                </div>
+              </div>
+              )}
+            </div>
           </section>
         </div>
       </div>

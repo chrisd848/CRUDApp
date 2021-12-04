@@ -10,6 +10,7 @@ const blogTitle = 'USER SUBMISSION'
 const createEntryTitle = 'CREATE ENTRY'
 const createCompetitionTitle = 'CREATE COMPETITION'
 const createJudgeTitle = 'CREATE JUDGE'
+const createWinnerTitle = 'CREATE WINNER'
 const submissionsTitle = 'SUBMISSIONS'
 const competitionsTitle = 'COMPETITIONS'
 const HowToEnterTitle = 'HOW TO ENTER'
@@ -17,7 +18,7 @@ const rulesTitle = 'RULES'
 const faqsTitle = 'FAQS'
 export const siteTitle = 'CRUD APP'
 
-export default function Layout({ children, home, login, register, blog, createEntry, createCompetition, createJudge, competitions, HowToEnter, faqs, rules, submissions }) {
+export default function Layout({ children, home, login, register, blog, createEntry, createCompetition, createJudge, createWinner, competitions, HowToEnter, faqs, rules, submissions }) {
   return (
     <>
     <div className={styles.outerContainer}>
@@ -43,6 +44,9 @@ export default function Layout({ children, home, login, register, blog, createEn
           )}
           {createJudge && (
             <h1 className={utilStyles.heading2Xl}>{createJudgeTitle}</h1>
+          )}
+          {createWinner && (
+            <h1 className={utilStyles.heading2Xl}>{createWinnerTitle}</h1>
           )}
           {competitions && (
             <h1 className={utilStyles.heading2Xl}>{competitionsTitle}</h1>
@@ -90,7 +94,7 @@ export default function Layout({ children, home, login, register, blog, createEn
 
     </div>
     <div className={styles.footerContainer}>
-      <p><a href="privacypolicy.html">Privacy Policy</a> | <a href="privacypolicy.html">Terms and Conditions</a> | <a href="privacypolicy.html">Cookies Policy</a></p>
+      <p><a href="privacypolicy.html">Privacy Policy</a> | <a href="termsandconditions.html">Terms and Conditions</a> | <a href="cookiepolicy.html">Cookies Policy</a></p>
     </div>
     </>
     

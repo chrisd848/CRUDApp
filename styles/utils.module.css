@@ -149,6 +149,7 @@
 .judgeItem {
   border-radius: 1px;
   display: flex;
+  border: 2px solid black;
 }
 
 .judgeContent {
@@ -159,7 +160,7 @@
   font-size: 0.9rem;
   font-weight: normal;
   margin: 0;
-  padding: 0;
+  padding: 0 0 6px 6px;
   color: black;
 }
 
@@ -167,6 +168,7 @@
   font-weight: bold !important;
   font-size: 1.4rem !important;
   display: inline-block;
+  padding-left: 6px !important;
 }
 
 .judgeLastName {
