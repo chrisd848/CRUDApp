@@ -101,3 +101,7 @@ ul.topnav li.register {
 .footerContainer p {
   font-size: 1rem;
 }
+
+.footerContainer a {
+  color: white;
+}

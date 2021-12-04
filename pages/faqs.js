@@ -57,7 +57,42 @@ const Faqs = () => {
         <div className={styles.innerContainer}>
           <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
             <h2 className={utilStyles.headingXl}>FAQs</h2>
-            <p className={utilStyles.blogPara}>This is the faqs page</p>
+            <p className={utilStyles.blogPara}>There are strict rules that must be followed in order to enter a competition.</p>
+            <ol>
+              <li className={utilStyles.blogPara}>Where can I find the rules of the competition I want to enter?</li>
+              <ul>
+                <li className={utilStyles.blogPara}><strong>Answer:</strong> You can view the rules of all competitions on the <a href="rules">rules</a> page</li>
+              </ul>
+              <li className={utilStyles.blogPara}>How do I view submissions to competitions?</li>
+              <ul>
+                <li className={utilStyles.blogPara}><strong>Answer:</strong> Go to the <a href="/">home</a> page and click the "View Submissions" button at the bottom of the page</li>
+                <li className={utilStyles.blogPara}>Alternatively you can click this link to be taken there directly: <a href="submissions">submissions</a></li>
+              </ul>
+              <li className={utilStyles.blogPara}>How long do I have to submit an entry to a competition?</li>
+              <ul>
+                <li className={utilStyles.blogPara}><strong>Answer:</strong> Some competitions persist indefinitly, if there is a time limit on a competition it will state otherwise</li>
+              </ul>
+              <li className={utilStyles.blogPara}>How do I enter into a competition?</li>
+              <ul>
+                <li className={utilStyles.blogPara}><strong>Answer:</strong> There is a list of instructions on how to enter a competition on the <a href="howToEnter">How To Enter</a> page</li>
+              </ul>
+              <li className={utilStyles.blogPara}>How do I create an account?</li>
+              <ul>
+                <li className={utilStyles.blogPara}><strong>Answer:</strong> You can create an account by clicking the <a href="howToEnter">register</a> button on the navigation menu</li>
+              </ul>
+              <li className={utilStyles.blogPara}>How do I win a competition?</li>
+              <ul>
+                <li className={utilStyles.blogPara}><strong>Answer:</strong> Competition winners will be selected by judges</li>
+              </ul>
+              <li className={utilStyles.blogPara}>Who are the judges?</li>
+              <ul>
+                <li className={utilStyles.blogPara}><strong>Answer:</strong> Information about the competition judges is available on the <a href="judges">judges</a> page</li>
+              </ul>
+              <li className={utilStyles.blogPara}>What are the prizes for winning a competition?</li>
+              <ul>
+                <li className={utilStyles.blogPara}><strong>Answer:</strong> The prizes for competitions are available on the <a href="rules">rules</a> page</li>
+              </ul>
+            </ol>
           </section>
         </div>
       </div>

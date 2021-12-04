@@ -73,7 +73,13 @@ const HowToEnter = () => {
         <div className={styles.innerContainer}>
           <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <h2 className={utilStyles.headingXl}>How To Enter</h2>
-            <p className={utilStyles.blogPara}>Below are the instructions of how to enter a writing prompt</p>
+          <p className={utilStyles.blogPara}>Entering into a writing competition is simple! Follow the instructions below:</p>
+          <ol>
+            <li className={utilStyles.blogPara}>Go to the <a href="/">home</a> page via the navigation bar above</li>
+            <li className={utilStyles.blogPara}>Click on one of the available competition writing prompts</li>
+            <li className={utilStyles.blogPara}>You will be taken to a form where you can create a submission</li>
+            <li className={utilStyles.blogPara}>Enter the title of your submission, along with the content and click "Submit Entry"</li>
+          </ol>
             
             <h2 className={utilStyles.headingXl}>Judges</h2>
 

@@ -37,10 +37,10 @@ const Submission = (props) => {
           <title>User Submission</title>
       </Head>
       <ul className={styles.topnav}>
-              <li><a href="/" key="home">Home</a></li>
-              <li><a href="howToEnter" key="howToEnter">How To Enter</a></li>
-              <li><a href="faqs" key="faqs">FAQs</a></li>
-              <li><a href="rules" key="rules">Rules</a></li>
+              <li><a href="../" key="home">Home</a></li>
+              <li><a href="../howToEnter" key="howToEnter">How To Enter</a></li>
+              <li><a href="../faqs" key="faqs">FAQs</a></li>
+              <li><a href="../rules" key="rules">Rules</a></li>
               {!loggedIn 
               ?
               [
