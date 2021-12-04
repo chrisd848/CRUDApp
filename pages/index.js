@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import fire from '../config/fire-config';
-import CreatePost from '../components/CreatePost';
 import Link from 'next/link';
 
 import styles from '../components/layout.module.css'
@@ -12,7 +11,6 @@ import UploadFile from '../components/storage/UploadFile'
 
 const Home = () => {
   const [competitions, setCompetitions] = useState([]);
-  const [blogs, setBlogs] = useState([]);
   const [notification, setNotification] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -24,18 +22,6 @@ const Home = () => {
         setLoggedIn(false)
       }
     })
-
-  useEffect(() => {
-    fire.firestore()
-      .collection('blog')
-      .onSnapshot(snap => {
-        const blogs = snap.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        setBlogs(blogs);
-      });
-  }, []);
 
   useEffect(() => {
     fire.firestore()

@@ -93,9 +93,11 @@ export default function Layout({ children, home, login, register, blog, createEn
         )}
 
     </div>
+
     <div className={styles.footerContainer}>
       <p><a href="privacypolicy.html">Privacy Policy</a> | <a href="termsandconditions.html">Terms and Conditions</a> | <a href="cookiepolicy.html">Cookies Policy</a></p>
     </div>
+        
     </>
     
   )

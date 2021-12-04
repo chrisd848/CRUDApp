@@ -97,23 +97,23 @@ const createWinner = () => {
               <form onSubmit={handleSubmit}>
                     <div>
                         <label className={utilStyles.inputLabel} for="fname">First Name</label><br />
-                        <input className={utilStyles.inputForm} id="fname" type="text" value={firstName} onChange={({target}) => setFirstName(target.value)} />
+                        <input required className={utilStyles.inputForm} id="fname" type="text" value={firstName} onChange={({target}) => setFirstName(target.value)} />
                     </div>
                     <div>
                         <label className={utilStyles.inputLabel} for="sname">Surname</label><br />
-                        <input className={utilStyles.inputForm} id="sname" type="text" value={surname} onChange={({target}) => setSurame(target.value)} />
+                        <input required className={utilStyles.inputForm} id="sname" type="text" value={surname} onChange={({target}) => setSurame(target.value)} />
                     </div>
                     <div>
                         <label className={utilStyles.inputLabel} for="theme">Theme</label><br />
-                        <input className={utilStyles.inputForm} id="theme" type="text" value={theme} onChange={({target}) => setTheme(target.value)} />
+                        <input required className={utilStyles.inputForm} id="theme" type="text" value={theme} onChange={({target}) => setTheme(target.value)} />
                     </div>
                     <div>
                         <label className={utilStyles.inputLabel} for="date">Date</label><br />
-                        <input className={utilStyles.inputForm} id="date" type="text" value={date} onChange={({target}) => setDate(target.value)} />
+                        <input required className={utilStyles.inputForm} id="date" type="text" value={date} onChange={({target}) => setDate(target.value)} />
                     </div>
                     <div>
                         <label className={utilStyles.inputLabel} for="placement">Placement</label><br />
-                        <input className={utilStyles.inputForm} id="placement" type="text" value={placement} onChange={({target}) => setPlacement(target.value)} />
+                        <input required className={utilStyles.inputForm} id="placement" type="text" value={placement} onChange={({target}) => setPlacement(target.value)} />
                     </div>
                     <button className={utilStyles.inputButton} type="submit">Add Winner</button>
                     {notification}

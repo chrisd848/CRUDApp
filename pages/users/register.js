@@ -50,10 +50,10 @@ const Register = () => {
         <title>Register</title>
       </Head>
       <ul className={styles.topnav}>
-        <li><a href="/" key="home">Home</a></li>
-        <li><a href="howToEnter" key="howToEnter">How To Enter</a></li>
-        <li><a href="faqs" key="faqs">FAQs</a></li>
-        <li><a href="rules" key="rules">Rules</a></li>
+        <li><a href="../" key="home">Home</a></li>
+        <li><a href="../howToEnter" key="howToEnter">How To Enter</a></li>
+        <li><a href="../faqs" key="faqs">FAQs</a></li>
+        <li><a href="../rules" key="rules">Rules</a></li>
         <li className={styles.register}><a href="#">Register</a></li>
         <li className={styles.login}><a href="login">Login</a></li>
       </ul>
@@ -65,16 +65,19 @@ const Register = () => {
           <input className={utilStyles.inputForm} id="username" type="text" value={userName} onChange={({target}) => setUsername(target.value)} /> 
           <br />
           <label className={utilStyles.inputLabel} for="emal">Email</label>
-          <input className={utilStyles.inputForm} id="emal" type="email" value={email} onChange={({target}) => setEmail(target.value)} /> 
+          <input required className={utilStyles.inputForm} id="emal" type="email" value={email} onChange={({target}) => setEmail(target.value)} /> 
           <br />
           <label className={utilStyles.inputLabel} for="pword">Password</label> 
-          <input className={utilStyles.inputForm} id="pword" type="password" value={password} onChange={({target}) => setPassword(target.value)} /> 
+          <input required className={utilStyles.inputForm} id="pword" type="password" value={password} onChange={({target}) => setPassword(target.value)} /> 
           <br />
           <label className={utilStyles.inputLabel} for="pwordc">Confirm Password</label>
-          <input className={utilStyles.inputForm} id="pwordc" type="password" value={passConf} onChange={({target}) => setPassConf(target.value)} /> 
+          <input required className={utilStyles.inputForm} id="pwordc" type="password" value={passConf} onChange={({target}) => setPassConf(target.value)} /> 
           <br />
           <input type="checkbox" id="terms" name="terms" required />
           <label for="terms">I acknowledge that I have read and agreed to the <a href="../termsandconditions.html">Terms and Conditions</a> and <a href="../privacypolicy.html">Privacy Policy</a></label>
+          <br />
+          <input type="checkbox" id="cookies" name="cookies" />
+          <label for="cookies">I agree to the <a href="../cookiespolicy.html">Cookies Policy</a> of this website</label>
           <br />
           <input type="checkbox" id="news" name="news" />
           <label for="news">Click here to sign up to recieve news and updates about writing prompts</label>

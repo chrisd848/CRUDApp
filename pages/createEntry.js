@@ -13,8 +13,10 @@ const createEntry = () => {
   const { query } = useRouter();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [prompt, setPrompt] = useState('');
   const [notification, setNotification] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [competitions, setCompetitions] = useState([]);
 
   fire.auth()
     .onAuthStateChanged((user) => {
@@ -25,6 +27,18 @@ const createEntry = () => {
       }
     })
 
+    useEffect(() => {
+      fire.firestore()
+        .collection('competitions')
+        .onSnapshot(snap => {
+          const competitions = snap.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+          }));
+          setCompetitions(competitions);
+        });
+    }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -34,11 +48,12 @@ const createEntry = () => {
         title: title,
         content: content,
         timestamp: new Date().toDateString(),
-        prompt: query.theme,
+        prompt: prompt,
       });
 
     setTitle('');
     setContent('');
+    setPrompt('');
 
     setNotification('Submission created');
     setTimeout(() => {
@@ -91,21 +106,26 @@ const createEntry = () => {
               ]
               :
               <form onSubmit={handleSubmit}>
-                     <div>
-                        <label className={utilStyles.inputLabel} for="title">Theme</label><br />
-                        <p>{query.theme}</p>
-                    </div>
-                    <div>
-                        <label className={utilStyles.inputLabel} for="title">Title</label><br />
-                        <input className={utilStyles.inputForm} id="title" type="text" value={title} onChange={({target}) => setTitle(target.value)} />
-                    </div>
-                    <div>
-                        <label className={utilStyles.inputLabel} for="body">Body</label><br />
-                        <textarea className={utilStyles.inputArea} id="body" value={content} onChange={({target}) => setContent(target.value)} />
-                    </div>
-                    <button className={utilStyles.inputButton} type="submit">Submit Entry</button>
-                    {notification}
-                </form>
+                <div>
+                    <label className={utilStyles.inputLabel} for="title">Title</label><br />
+                    <input required className={utilStyles.inputForm} id="title" type="text" value={title} onChange={({target}) => setTitle(target.value)} />
+                </div>
+                <div>
+                    <label className={utilStyles.inputLabel} for="body">Body</label><br />
+                    <textarea required className={utilStyles.inputArea} id="body" value={content} onChange={({target}) => setContent(target.value)} />
+                </div>
+                <div>
+                  <label className={utilStyles.inputLabel} for="prompt">Theme</label><br />
+                   <select className={utilStyles.inputForm} id="prompt" value={prompt} onChange={({target}) => setPrompt(target.value)}>
+                    <option value="" selected disabled>Choose a theme...</option>
+                    {competitions.map(competition =>
+                    <option required value={competition.title}>{competition.title}</option>
+                    )}
+                  </select>
+                </div>
+                <button className={utilStyles.inputButton} type="submit">Submit Entry</button>
+                {notification}
+            </form>
               }
             </div>
         </div>

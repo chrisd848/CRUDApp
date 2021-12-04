@@ -39,10 +39,10 @@ const Login = () => {
         <title>Login</title>
       </Head>
       <ul className={styles.topnav}>
-        <li><a href="/" key="home">Home</a></li>
-        <li><a href="howToEnter" key="howToEnter">How To Enter</a></li>
-        <li><a href="faqs" key="faqs">FAQs</a></li>
-        <li><a href="rules" key="rules">Rules</a></li>
+        <li><a href="../" key="home">Home</a></li>
+        <li><a href="../howToEnter" key="howToEnter">How To Enter</a></li>
+        <li><a href="../faqs" key="faqs">FAQs</a></li>
+        <li><a href="../rules" key="rules">Rules</a></li>
         <li className={styles.register}><a href="register">Register</a></li>
         <li className={styles.login}><a href="#">Login</a></li>
       </ul>
@@ -51,10 +51,10 @@ const Login = () => {
         {notify}
         <form onSubmit={handleLogin}>
           <label className={utilStyles.inputLabel} for="emal">Email</label>
-          <input className={utilStyles.inputForm} id="emal" type="text" value={username} onChange={({target}) => setUsername(target.value)} />
+          <input required className={utilStyles.inputForm} id="emal" type="text" value={username} onChange={({target}) => setUsername(target.value)} />
           <br />
           <label className={utilStyles.inputLabel} for="pword">Password</label>
-          <input className={utilStyles.inputForm} id="pword" type="password" value={password} onChange={({target}) => setPassword(target.value)} />
+          <input required className={utilStyles.inputForm} id="pword" type="password" value={password} onChange={({target}) => setPassword(target.value)} />
           <br />
           <button className={utilStyles.inputButton} type="submit">Login</button>
         </form>

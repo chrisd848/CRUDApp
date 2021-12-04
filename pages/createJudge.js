@@ -91,15 +91,15 @@ const createJudge = () => {
               <form onSubmit={handleSubmit}>
                     <div>
                         <label className={utilStyles.inputLabel} for="fname">First Name</label><br />
-                        <input className={utilStyles.inputForm} id="fname" type="text" value={firstName} onChange={({target}) => setFirstName(target.value)} />
+                        <input required className={utilStyles.inputForm} id="fname" type="text" value={firstName} onChange={({target}) => setFirstName(target.value)} />
                     </div>
                     <div>
                         <label className={utilStyles.inputLabel} for="sname">Surname</label><br />
-                        <input className={utilStyles.inputForm} id="sname" type="text" value={surname} onChange={({target}) => setSurame(target.value)} />
+                        <input required className={utilStyles.inputForm} id="sname" type="text" value={surname} onChange={({target}) => setSurame(target.value)} />
                     </div>
                     <div>
                         <label className={utilStyles.inputLabel} for="body">Biography</label><br />
-                        <textarea className={utilStyles.inputArea} id="body" value={biography} onChange={({target}) => setBiography(target.value)} />
+                        <textarea required className={utilStyles.inputArea} id="body" value={biography} onChange={({target}) => setBiography(target.value)} />
                     </div>
                     <button className={utilStyles.inputButton} type="submit">Add Judge</button>
                     {notification}

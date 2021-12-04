@@ -87,11 +87,11 @@ const createCompetition = () => {
               <form onSubmit={handleSubmit}>
                     <div>
                         <label className={utilStyles.inputLabel} for="title">Competition Title</label><br />
-                        <input className={utilStyles.inputForm} id="title" type="text" value={title} onChange={({target}) => setTitle(target.value)} />
+                        <input required className={utilStyles.inputForm} id="title" type="text" value={title} onChange={({target}) => setTitle(target.value)} />
                     </div>
                     <div>
                         <label className={utilStyles.inputLabel} for="body">Competition Description</label><br />
-                        <textarea className={utilStyles.inputArea} id="body" value={description} onChange={({target}) => setDescription(target.value)} />
+                        <textarea required className={utilStyles.inputArea} id="body" value={description} onChange={({target}) => setDescription(target.value)} />
                     </div>
                     <button className={utilStyles.inputButton} type="submit">Post Competition</button>
                     {notification}
