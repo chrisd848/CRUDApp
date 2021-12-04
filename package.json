@@ -1,6 +1,6 @@
 {
-  "name": "nextjs-blog-app",
-  "version": "0.1.0",
+  "name": "nextjs-crud-app",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "firebase": "^7.24.0",
-    "next": "^9.4.4",
+    "next": "^10.2.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -25,6 +25,5 @@
   "bugs": {
     "url": "https://github.com/chrisd848/CRUDApp/issues"
   },
-  "homepage": "https://github.com/chrisd848/CRUDApp#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/chrisd848/CRUDApp#readme"
 }
