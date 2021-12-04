@@ -12,11 +12,12 @@ const createCompetitionTitle = 'CREATE COMPETITION'
 const createJudgeTitle = 'CREATE JUDGE'
 const submissionsTitle = 'SUBMISSIONS'
 const competitionsTitle = 'COMPETITIONS'
-const judgesTitle = 'JUDGES'
-const aboutTitle = 'ABOUT'
+const HowToEnterTitle = 'HOW TO ENTER'
+const rulesTitle = 'RULES'
+const faqsTitle = 'FAQS'
 export const siteTitle = 'CRUD APP'
 
-export default function Layout({ children, home, login, register, blog, createEntry, createCompetition, createJudge, competitions, judges, about, submissions }) {
+export default function Layout({ children, home, login, register, blog, createEntry, createCompetition, createJudge, competitions, HowToEnter, faqs, rules, submissions }) {
   return (
     <>
     <div className={styles.outerContainer}>
@@ -46,11 +47,14 @@ export default function Layout({ children, home, login, register, blog, createEn
           {competitions && (
             <h1 className={utilStyles.heading2Xl}>{competitionsTitle}</h1>
           )}
-          {judges && (
-            <h1 className={utilStyles.heading2Xl}>{judgesTitle}</h1>
+          {HowToEnter && (
+            <h1 className={utilStyles.heading2Xl}>{HowToEnterTitle}</h1>
           )}
-          {about && (
-            <h1 className={utilStyles.heading2Xl}>{aboutTitle}</h1>
+          {rules && (
+            <h1 className={utilStyles.heading2Xl}>{rulesTitle}</h1>
+          )}
+          {faqs && (
+            <h1 className={utilStyles.heading2Xl}>{faqsTitle}</h1>
           )}
           {submissions && (
             <h1 className={utilStyles.heading2Xl}>{submissionsTitle}</h1>

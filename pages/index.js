@@ -68,19 +68,18 @@ const Home = () => {
         </Head>
         
         <ul className={styles.topnav}>
-              <li><a className={styles.active} href="#">Home</a></li>
-              <li><a href="submissions">Submissions</a></li>
-              <li><a href="competitions">Competitions</a></li>
-              <li><a href="judges">Judges</a></li>
-              <li><a href="about">About</a></li>
+              <li><a href="/" key="home" className={styles.active}>Home</a></li>
+              <li><a href="howToEnter" key="howToEnter">How To Enter</a></li>
+              <li><a href="faqs" key="faqs">FAQs</a></li>
+              <li><a href="rules" key="rules">Rules</a></li>
               {!loggedIn 
               ?
               [
-                <li className={styles.register}><a href="/users/register">Register</a></li>,
-                <li className={styles.login}><a href="/users/login">Login</a></li>
+                <li className={styles.register}><a href="/users/register" key="register">Register</a></li>,
+                <li className={styles.login}><a href="/users/login" key="login">Login</a></li>
               ]
               :
-              <li className={styles.register}><a href="/" onClick={handleLogout}>Logout</a></li>
+              <li className={styles.register}><a href="/users/login" onClick={handleLogout} key="logout">Logout</a></li>
               }
         </ul>
 
@@ -89,24 +88,23 @@ const Home = () => {
             <h2 className={utilStyles.headingXl}>Competitions</h2>
             <p className={utilStyles.blogPara}>Below is a list of open writing prompts</p>
           
-            <div className={utilStyles.competitionList}>
+            <div className={utilStyles.competitionContainer}>
               {competitions.map(competition =>
-              <a href="createEntry">
+              <Link href="/createEntry?theme=[id]" as={'/createEntry?theme=' + competition.title }>
               <div className={utilStyles.competitionItem} key={competition.id}>
                 <div className={utilStyles.competitionContent}>
                   <p className={utilStyles.competitionTitle} itemProp="hello">{competition.title}</p>
                 </div>
               </div>
-              </a>
+              </Link>
               )}
             </div>
 
-            {loggedIn &&
             <div className={styles.backToHome}>
-              <Link href="createCompetition">
-                <a>Add New Writing Prompt</a>
+              <Link href="submissions">
+                <a>View Submissions</a>
               </Link>
-            </div>}
+            </div>
             
           </section>
         </div>

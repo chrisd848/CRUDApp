@@ -7,11 +7,12 @@ import styles from '../components/layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Layout, { siteTitle } from '../components/layout'
 import firebase, { firestore } from 'firebase';
+import { Router, useRouter } from "next/router";
 
 const createEntry = () => {
+  const { query } = useRouter();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [timestamp, setTimestamp] = useState('');
   const [notification, setNotification] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -32,7 +33,8 @@ const createEntry = () => {
       .add({
         title: title,
         content: content,
-        timestamp: firebase.firestore.Timestamp.now(),
+        timestamp: new Date().toDateString(),
+        prompt: query.theme,
       });
 
     setTitle('');
@@ -54,6 +56,7 @@ const createEntry = () => {
           setNotification('')
         }, 2000)
       });
+
   }
   return (
     <Layout createEntry>
@@ -62,24 +65,27 @@ const createEntry = () => {
                <title>Create Entry</title>
             </Head>
             <ul className={styles.topnav}>
-              <li><a href="/">Home</a></li>
-              <li><a href="submissions">Submissions</a></li>
-              <li><a href="competitions">Competitions</a></li>
-              <li><a href="judges">Judges</a></li>
-              <li><a href="about">About</a></li>
+              <li><a href="/" key="home">Home</a></li>
+              <li><a href="howToEnter" key="howToEnter">How To Enter</a></li>
+              <li><a href="faqs" key="faqs">FAQs</a></li>
+              <li><a href="rules" key="rules">Rules</a></li>
               {!loggedIn 
               ?
               [
-                <li className={styles.register}><a href="/users/register">Register</a></li>,
-                <li className={styles.login}><a href="/users/login">Login</a></li>
+                <li className={styles.register}><a href="/users/register" key="register">Register</a></li>,
+                <li className={styles.login}><a href="/users/login" key="login">Login</a></li>
               ]
               :
-              <li className={styles.register}><a href="/" onClick={handleLogout}>Logout</a></li>
+              <li className={styles.register}><a href="/users/login" onClick={handleLogout} key="logout">Logout</a></li>
               }
-            </ul>
-
+        </ul>
+                
             <div className={styles.innerContainer}>
                 <form onSubmit={handleSubmit}>
+                     <div>
+                        <label className={utilStyles.inputLabel} for="title">Theme</label><br />
+                        <p>{query.theme}</p>
+                    </div>
                     <div>
                         <label className={utilStyles.inputLabel} for="title">Title</label><br />
                         <input className={utilStyles.inputForm} id="title" type="text" value={title} onChange={({target}) => setTitle(target.value)} />

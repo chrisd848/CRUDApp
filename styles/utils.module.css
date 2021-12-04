@@ -5,7 +5,7 @@
   }
 
 .headingXl {
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 1.3;
   font-weight: 800;
   letter-spacing: -0.05rem;
@@ -25,9 +25,21 @@
 }
 
 .blogPara {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   line-height: 1.5;
   text-align: justify;
+}
+
+.blogDate {
+  font-size: 1.1rem;
+  display: inline;
+  font-weight: bold;
+}
+
+.blogPrompt {
+  font-size: 1.1rem;
+  display: inline;
+  margin-left: 24px;
 }
 
 .borderCircle {
@@ -85,6 +97,10 @@
 
 .competitionContainer a {
   text-decoration: none;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
 }
 
 .competitionItem {
@@ -93,6 +109,7 @@
   cursor: pointer;
   display: flex;
   padding: 12px;
+  margin: 0;
 }
 
 .competitionItem:hover {
@@ -121,8 +138,8 @@
   overflow: hidden;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 1fr;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-column-gap: 12px;
+  grid-row-gap: 36px;
 }
 
 .judgeContainer a {
@@ -130,28 +147,8 @@
 }
 
 .judgeItem {
-  background: #1E90FF;
   border-radius: 1px;
-  cursor: pointer;
   display: flex;
-  padding: 12px;
-}
-
-.judgeItem:hover {
-  background-color: #333;
-  color: white;
-  -webkit-transition: background-color 0.15s ease-out, color 0.15s ease-out;
-  -moz-transition: background-color 0.15s ease-out, color 0.15s ease-out;
-  -o-transition: background-color 0.15s ease-out, color 0.15s ease-out;
-  transition: background-color 0.15s ease-out, color 0.15s ease-out;
-}
-
-.judgeItem p {
-  font-size: 1rem;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  color: #edf0f0;
 }
 
 .judgeContent {
@@ -159,15 +156,23 @@
 }
 
 .judgeContent p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: normal;
   margin: 0;
   padding: 0;
-  color: #edf0f0;
+  color: black;
 }
 
 .judgeFirstName {
-  font-weight: bold;
+  font-weight: bold !important;
+  font-size: 1.4rem !important;
+  display: inline-block;
+}
+
+.judgeLastName {
+  font-weight:lighter !important;
+  font-size: 1.4rem !important;
+  display: inline-block;
 }
 
 .lightText {
