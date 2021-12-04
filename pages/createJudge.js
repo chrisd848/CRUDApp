@@ -78,7 +78,6 @@ const createJudge = () => {
         </ul>
 
             <div className={styles.innerContainer}>
-              <h2>{profile}</h2>
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label className={utilStyles.inputLabel} for="fname">First Name</label><br />
