@@ -116,7 +116,7 @@ const Faqs = () => {
               <div className={utilStyles.judgeItem} key={winner.id}>
                 <br/>
                 <div className={utilStyles.judgeContent}>
-                  <Image className={utilStyles.judgePicture} src={`/../public/images/${profilePicture}`} alt="Picture of the winner" width={400} height={400}/>
+                  <Image className={utilStyles.judgePicture} src={`/images/${profilePicture}`} alt="Picture of the winner" width={400} height={400}/>
                   <p className={utilStyles.judgeFirstName} itemProp="firstName">{winner.firstName}</p>
                   <p className={utilStyles.judgeLastName} itemProp="surname">{winner.surname}</p>
                   <p className={utilStyles.judgeBiography} itemProp="theme">{winner.theme}</p>

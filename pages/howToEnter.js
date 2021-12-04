@@ -87,7 +87,7 @@ const HowToEnter = () => {
               <div className={utilStyles.judgeItem} key={judge.id}>
                 <br/>
                 <div className={utilStyles.judgeContent}>
-                  <Image className={utilStyles.judgePicture} src={`/../public/images/${profilePicture}`} alt="Picture of the judge" width={400} height={400}/>
+                  <Image className={utilStyles.judgePicture} src={`/images/${profilePicture}`} alt="Picture of the judge" width={400} height={400}/>
                   <p className={utilStyles.judgeFirstName} itemProp="firstName">{judge.firstName}</p>
                   <p className={utilStyles.judgeLastName} itemProp="surname">{judge.surname}</p>
                   <p className={utilStyles.judgeBiography} itemProp="biography">{judge.biography}</p>

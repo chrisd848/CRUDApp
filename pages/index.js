@@ -87,7 +87,6 @@ const Home = () => {
           <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
             <h2 className={utilStyles.headingXl}>Competitions</h2>
             <p className={utilStyles.blogPara}>Below is a list of open writing prompts</p>
-          
             <div className={utilStyles.competitionContainer}>
               {competitions.map(competition =>
               <Link href="/createEntry?theme=[id]" as={'/createEntry?theme=' + competition.title }>
